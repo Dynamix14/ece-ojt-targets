@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ECE OJT Targets — ranked from Taft, Malate</title>
+<meta name="description" content="17 companies that list ECE in the face-to-face OJT masterlist, ranked by driving distance from Taft, Malate — with the internship roles each one could give an ECE student and what interns actually report.">
+<style>
+  :root{
+    --ink:#141a1f; --ink-2:#3d4a52; --muted:#6b7a82;
+    --paper:#f7f4ee; --surface:#fffdf9; --line:#ddd6c9; --line-soft:#e9e3d8;
+    --accent:#a8331f; --accent-soft:#f4e3dd;
+    --ok:#1f5c3d; --ok-soft:#e2efe6;
+    --warn:#8a5a00; --warn-soft:#f7ecd7;
+    --radius:3px; --max:1080px;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+    --mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none;text-underline-offset:2px}
+  a:hover{text-decoration:underline}
+  a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+  header.mast{border-bottom:2px solid var(--ink)}
+  .mast-inner{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between;padding:28px 20px 18px;max-width:var(--max);margin:0 auto}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(30px,5vw,46px);line-height:1.05;margin:6px 0 8px;letter-spacing:-.01em}
+  .dek{max-width:56ch;color:var(--ink-2);font-size:15px;margin:0}
+  .stamp{font-family:var(--mono);font-size:11px;color:var(--muted);text-align:right;line-height:1.7;white-space:nowrap}
+  .controls{position:sticky;top:0;z-index:20;background:rgba(247,244,238,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:12px 0}
+  .controls-inner{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;max-width:var(--max);margin:0 auto;padding:0 20px}
+  .filters{display:flex;flex-wrap:wrap;gap:6px}
+  .chip{font:inherit;font-size:13px;padding:5px 11px;background:transparent;border:1px solid var(--line);color:var(--ink-2);border-radius:999px;cursor:pointer;transition:background .15s,border-color .15s,color .15s}
+  .chip:hover{border-color:var(--ink-2)}
+  .chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+  .search{margin-left:auto;display:flex;align-items:center;gap:8px}
+  .search input{font:inherit;font-size:14px;padding:7px 10px;width:210px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);color:var(--ink)}
+  .search input::placeholder{color:var(--muted)}
+  .count{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+  main{padding:26px 0 8px}
+  .lead{display:grid;gap:10px;margin:0 0 20px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+  .lead p{margin:0;font-size:14.5px;color:var(--ink-2);max-width:78ch}
+  .lead strong{color:var(--ink)}
+  .findings{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+  .findings li{font-size:14px;color:var(--ink-2);padding-left:16px;position:relative}
+  .findings li::before{content:"";position:absolute;left:2px;top:9px;width:5px;height:5px;background:var(--ink);border-radius:50%;opacity:.4}
+  ol.list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+  li.row{display:grid;grid-template-columns:44px 1fr;gap:0 18px;padding:18px 0 20px;border-bottom:1px solid var(--line)}
+  .rank{font-family:var(--mono);font-size:13px;color:var(--muted);padding-top:3px;text-align:right}
+  .body{min-width:0}
+  .head{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 12px}
+  h2{font-family:var(--serif);font-size:20px;font-weight:600;margin:0;line-height:1.25;letter-spacing:-.005em}
+  .badge{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:2px;white-space:nowrap}
+  .b-high{background:var(--ok-soft);color:var(--ok)}
+  .b-mid{background:var(--warn-soft);color:var(--warn)}
+  .b-low{background:#ecebe6;color:var(--muted)}
+  .b-live{background:var(--accent-soft);color:var(--accent)}
+  .dist{margin-left:auto;display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:12px;color:var(--ink-2);white-space:nowrap}
+  .bar{width:78px;height:4px;background:var(--line-soft);border-radius:2px;overflow:hidden}
+  .bar i{display:block;height:100%;background:var(--accent);border-radius:2px}
+  .bar i.far{background:var(--muted)}
+  .addr{font-size:13px;color:var(--muted);margin:5px 0 10px}
+  .roles{margin:0;padding:0;list-style:none;display:grid;gap:4px}
+  .roles li{position:relative;padding-left:15px;font-size:14.5px}
+  .roles li::before{content:"";position:absolute;left:2px;top:9px;width:5px;height:5px;background:var(--accent);border-radius:50%;opacity:.65}
+  .what{font-size:13.5px;color:var(--ink-2);margin:10px 0 0;max-width:74ch}
+  .what b{color:var(--muted);font-weight:600;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;margin-right:6px}
+  .reality{margin:14px 0 0;padding:11px 13px 12px;background:var(--surface);border:1px solid var(--line-soft);border-left:2px solid var(--ok);border-radius:var(--radius)}
+  .reality.none{border-left-color:var(--line);background:transparent}
+  .r-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin-bottom:7px}
+  .r-tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ok)}
+  .r-tag.muted{color:var(--muted)}
+  .r-stars{font-family:var(--mono);font-size:11px;color:var(--ink);background:var(--ok-soft);padding:1px 6px;border-radius:2px}
+  .r-src{font-size:11.5px;color:var(--muted)}
+  .r-head a{font-size:11.5px}
+  .r-list{margin:0;padding:0;list-style:none;display:grid;gap:3px}
+  .r-list li{position:relative;padding-left:14px;font-size:13.5px;color:var(--ink-2)}
+  .r-list li::before{content:"—";position:absolute;left:0;color:var(--muted);font-size:12px}
+  blockquote{margin:9px 0 0;padding:0 0 0 12px;border-left:2px solid var(--line);font-size:13px;color:var(--ink-2);font-style:italic}
+  .links{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:11px;font-size:13px}
+  .links a::after{content:"\2197";font-size:10px;opacity:.55;margin-left:3px}
+  .links .post{color:var(--ok);font-weight:600}
+  .links .post::after{content:"\2713";opacity:.7}
+  details.more{margin-top:10px;font-size:13px;color:var(--ink-2)}
+  details.more summary{cursor:pointer;color:var(--muted);font-family:var(--mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;list-style:none;display:inline-flex;gap:6px;align-items:center}
+  details.more summary::-webkit-details-marker{display:none}
+  details.more summary::before{content:"+";font-size:13px;color:var(--accent)}
+  details.more[open] summary::before{content:"\2212"}
+  .panel{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:4px 22px;margin-top:8px;padding:10px 12px;background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--radius)}
+  .kv{display:grid;grid-template-columns:74px 1fr;gap:2px 8px;font-size:12.5px;padding:2px 0;margin:0}
+  .kv dt{color:var(--muted);font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding-top:2px}
+  .kv dd{margin:0;min-width:0;overflow-wrap:anywhere}
+  .empty{padding:40px 0;color:var(--muted);font-family:var(--mono);font-size:13px}
+  footer{border-top:2px solid var(--ink);margin-top:30px;padding:26px 0 46px}
+  footer h3{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+  footer p,footer li{font-size:13px;color:var(--ink-2);max-width:80ch}
+  footer ul{padding-left:18px;margin:0 0 18px}
+  footer li{margin-bottom:5px}
+  .cols{display:grid;gap:26px;grid-template-columns:1fr 1fr}
+  @media (max-width:720px){
+    .cols{grid-template-columns:1fr}
+    .mast-inner{padding-top:20px}
+    .stamp{text-align:left}
+    li.row{grid-template-columns:30px 1fr;gap:0 10px}
+    .dist{margin-left:0;order:9}
+    .search{margin-left:0;width:100%}
+    .search input{width:100%}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="mast">
+  <div class="mast-inner">
+    <div>
+      <div class="eyebrow">Mapúa ECE · OJT placement brief</div>
+      <h1>17 ECE-listed OJT targets,<br>ranked from Taft, Malate</h1>
+      <p class="dek">Every company here names <b>ECE</b> in its programs-offered column. Ordered by driving distance from DLSU–Taft, with the roles each employer could hand an electronics engineering student — and what past interns say actually happens.</p>
+    </div>
+    <div class="stamp">
+      433 rows screened<br>
+      17 list ECE<br>
+      9 with intern reviews<br>
+      checked 7 Nov 2026
+    </div>
+  </div>
+</header>
+
+<div class="controls">
+  <div class="controls-inner">
+    <div class="filters" role="group" aria-label="Filter companies">
+      <button class="chip" data-filter="all" aria-pressed="true">All 17</button>
+      <button class="chip" data-filter="near" aria-pressed="false">≤ 6 km</button>
+      <button class="chip" data-filter="mid" aria-pressed="false">6–10 km</button>
+      <button class="chip" data-filter="far" aria-pressed="false">10–20 km</button>
+      <button class="chip" data-filter="beyond" aria-pressed="false">20 km +</button>
+      <button class="chip" data-filter="high" aria-pressed="false">Strong fit</button>
+      <button class="chip" data-filter="reviews" aria-pressed="false">Has intern reviews</button>
+      <button class="chip" data-filter="posted" aria-pressed="false">Posting found</button>
+    </div>
+    <div class="search">
+      <button class="chip" id="sort" data-mode="distance">Sorted by distance</button>
+      <label for="q" class="count">search</label>
+      <input id="q" type="search" placeholder="RF, FPGA, ELV, overtime…" autocomplete="off">
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+  <div class="lead">
+    <p><strong>The short answer:</strong> the six Makati CBD sites are a 6-minute drive from Taft, and three of them are genuinely electronics work — <strong>Meinhardt</strong> (ELV design), <strong>USHER</strong> (seismic instrumentation) and <strong>Edgepoint</strong> (tower RF). The silicon sits far away: Lattice in Alabang, TI in Baguio.</p>
+    <ul class="findings">
+      <li><strong>The Makati internships are light.</strong> APMC interns report “not much to do most of the time”; Meinhardt’s only review calls it a “light working environment”.</li>
+      <li><strong>Banking pays.</strong> Security Bank interns confirm a ₱10k+ allowance — and one cohort was paid more than two months after finishing.</li>
+      <li><strong>Semiconductor gives real projects.</strong> TI and Lattice reviews both stress meaningful work plus a mentor; TI’s catch is a supervisor too busy to guide you.</li>
+      <li><strong>The small firms are the wildcard.</strong> USHER’s single intern review is a 2.0 warning about zero training. No reviews exist at all for Jason Marine, 90 Degrees, PISAS, Secuna or Edgepoint.</li>
+    </ul>
+    <span class="count" id="live" role="status" aria-live="polite">17 of 17 companies shown</span>
+  </div>
+  <ol class="list">
+  <li class="row" data-km="4.7" data-fit="MED-HIGH" data-posted="0" data-reviews="4" data-text="ayala property management corporation (apmc) building systems (elv/cctv/fdas/bms) engineering intern; facilities maintenance &amp; testing intern; auxiliary systems intern (gensets, ups, elevators); instrumentation exposure via usher seismic-monitoring installs integrated property management for ayala land towers, malls, parking, waterworks; special technical services. mse building, ayala avenue, makati city kalibrr apmc company page; apmc appears as a usher monitoring client workload is genuinely light — &quot;not much to do most of the time&quot;, &quot;job is not that hard if you&#x27;re an intern&quot;. exposure is site/property based: construction walkthroughs, building operations, hands-on with the engineering team. teams are described as friendly and willing to teach; little of it is electronics design.">
+    <div class="rank">01</div>
+    <div class="body">
+      <div class="head">
+        <h2>Ayala Property Management Corporation (APMC)</h2>
+        <span class="badge b-high">good ECE fit</span>
+        
+        <span class="dist"><span class="bar" aria-hidden="true"><i class="" style="width:43%"></i></span> 4.7 km · ~6 min</span>
+      </div>
+      <p class="addr">MSE Building, Ayala Avenue, Makati City</p>
+      <ul class="roles"><li>Building systems (ELV/CCTV/FDAS/BMS) engineering intern</li><li>facilities maintenance &amp; testing intern</li><li>auxiliary systems intern (gensets, UPS, elevators)</li><li>instrumentation exposure via USHER seismic-monitoring installs</li></ul>
+      <p class="what"><b>What they do</b>Integrated property management for Ayala Land towers, malls, parking, waterworks; special technical services.</p>
+      <div class="reality">
+          <div class="r-head"><span class="r-tag">intern reality</span><span class="r-stars">4.8 / 5</span><span class="r-src">Indeed · 4 intern reviews</span><a href="https://ph.indeed.com/cmp/Ayala-Property-Management-Corporation/job-titles/Intern" target="_blank" rel="noopener">source</a></div>
+          <ul class="r-list"><li>Workload is genuinely light — &quot;not much to do most of the time&quot;, &quot;job is not that hard if you&#x27;re an intern&quot;.</li><li>Exposure is site/property based: construction walkthroughs, building operations, hands-on with the engineering team.</li><li>Teams are described as friendly and willing to teach; little of it is electronics design.</li></ul><blockquote>&quot;I carried a lot of learnings... they really provided a strong foundation of hands on experience about construction.&quot;</blockquote>
+        </div>
+      <div class="links"><a href="https://www.ayalaproperty.com.ph/" target="_blank" rel="noopener">website</a><a href="https://www.linkedin.com/company/ayala-property-management-corporation" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.kalibrr.ph/c/ayala-property-management-corporation-apmc/jobs" target="_blank" rel="noopener">Kalibrr listings</a></div>
+      <details class="more"><summary>contact &amp; MOA details</summary><div class="panel">
+      <dl class="kv"><dt>Address</dt><dd>MSE Building, Ayala Avenue, Makati City</dd></dl>
+      <dl class="kv"><dt>Contact</dt><dd>Rigel Marie C. Tiglao<br><span style="color:var(--muted)">HR Talent Acquisition Management</span></dd></dl>
+      <dl class="kv"><dt>Email</dt><dd><a href="mailto:caunca.gel@ayalaprperty.com.ph">caunca.gel@ayalaprperty.com.ph</a></dd></dl>
+      <dl class="kv"><dt>MOA</dt><dd>October 22, 2025 - October 21, 2028</dd></dl>
+      <dl class="kv"><dt>Slots</dt><dd>not stated</dd></dl>
+      <dl class="kv"><dt>Intake</dt><dd>not stated</dd></dl>
+      <dl class="kv"><dt>Basis</dt><dd>Kalibrr APMC company page; APMC appears as a USHER monitoring client</dd></dl>
+    </div></details>
+    </div>
+  </li>
+  <li class="row" data-km="4.7" data-fit="MEDIUM" data-posted="1" data-reviews="4" data-text="security bank corporation it infrastructure / network operations intern (data centre, lan/wan, structured cabling); information security / soc intern; atm &amp; self-service channel engineering intern; facilities &amp; business-continuity engineering intern universal bank; star (student training and advanced readiness) internship program run per business unit. 6776 ayala avenue, makati city securitybank.com star program page; star posting verified on linkedin rotation across a business unit — interns report real tasks (industry research, competitor scans, vendor surveys) plus clerical work. allowance is real money (~₱10k+) but at least one cohort was paid more than 2 months after finishing. unit-dependent: marketing, corporate banking and star cohorts described differently. ask which unit you&#x27;d land in.">
+    <div class="rank">02</div>
+    <div class="body">
+      <div class="head">
+        <h2>Security Bank Corporation</h2>
+        <span class="badge b-mid">partial fit</span>
+        <span class="badge b-live">posting found</span>
+        <span class="dist"><span class="bar" aria-hidden="true"><i class="" style="width:43%"></i></span> 4.7 km · ~6 min</span>
+      </div>
+      <p class="addr">6776 Ayala Avenue, Makati City</p>
+      <ul class="roles"><li>IT Infrastructure / Network Operations intern (data centre, LAN/WAN, structured cabling)</li><li>Information Security / SOC intern</li><li>ATM &amp; self-service channel engineering intern</li><li>facilities &amp; business-continuity engineering intern</li></ul>
+      <p class="what"><b>What they do</b>Universal bank; STAR (Student Training and Advanced Readiness) Internship Program run per business unit.</p>
+      <div class="reality">
+          <div class="r-head"><span class="r-tag">intern reality</span><span class="r-stars">4.0 / 5</span><span class="r-src">Indeed · 4 intern reviews</span><a href="https://ph.indeed.com/cmp/Security-Bank-Corporation/job-titles/Intern" target="_blank" rel="noopener">source</a></div>
+          <ul class="r-list"><li>Rotation across a business unit — interns report real tasks (industry research, competitor scans, vendor surveys) plus clerical work.</li><li>Allowance is real money (~₱10k+) but at least one cohort was paid more than 2 months after finishing.</li><li>Unit-dependent: marketing, corporate banking and STAR cohorts described differently. Ask which unit you&#x27;d land in.</li></ul><blockquote>&quot;Our allowance took more than 2 months after finishing the internship before we received it.&quot;</blockquote>
+        </div>
+      <div class="links"><a href="https://www.securitybank.com/" target="_blank" rel="noopener">website</a><a href="https://www.linkedin.com/company/security-bank-corporation" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.securitybank.com/careers/security-bank-internship-program/" target="_blank" rel="noopener">careers / contact</a><a class="post" href="https://www.linkedin.com/jobs/view/3935143880" target="_blank" rel="noopener">STAR Internship Program</a></div>
+      <details class="more"><summary>contact &amp; MOA details</summary><div class="panel">
+      <dl class="kv"><dt>Address</dt><dd>6776 Ayala Avenue, Makati City</dd></dl>
+      <dl class="kv"><dt>Contact</dt><dd>Jamila E. Pialago<br><span style="color:var(--muted)">Sr. Asst. Manager/Talent Acquisition- RecruitmentMarketing &amp; Strategy</span></dd></dl>
+      <dl class="kv"><dt>Email</dt><dd><a href="mailto:MFrancisco@securitybank.com.ph">MFrancisco@securitybank.com.ph</a></dd></dl>
+      <dl class="kv"><dt>MOA</dt><dd>July 2024 - July 2027</dd></dl>
+      <dl class="kv"><dt>Slots</dt><dd>not stated</dd></dl>
+      <dl class="kv"><dt>Intake</dt><dd>not stated</dd></dl>
+      <dl class="kv"><dt>Basis</dt><dd>securitybank.com STAR program page; STAR posting verified on LinkedIn</dd></dl>
+    </div></details>
+    </div>
+  </li>
+  <li class="row" data-km="4.9" data-fit="HIGH" data-posted="0" data-reviews="0" data-text="edgepoint towers inc. rf / radio planning &amp; site design intern; site engineering intern (structural loading, grounding, lightning protection); power systems intern (rectifiers, gensets, solar-hybrid); noc / remote monitoring intern tower &amp; ancillary infrastructure: ground-base towers, monopoles, rooftop, smart poles; site acquisition, build, maintenance, upgrades for mobile operators. 26th floor, robinsons summit center, ayala makati city edgepointinfra.com/solutions-services/towers-ancillary-services; /careers 404s with &#x27;drop us your resume&#x27; nothing on indeed, jobstreet, glassdoor or reddit under this name — the ph entity is young and rarely reviews. expect site/field work: tower sites, power cabinets, grounding, drive testing. treat the role list as inferred only.">
+    <div class="rank">03</div>
+    <div class="body">
+      <div class="head">
+        <h2>Edgepoint Towers Inc.</h2>
+        <span class="badge b-high">strong ECE fit</span>
+        
+        <span class="dist"><span class="bar" aria-hidden="true"><i class="" style="width:43%"></i></span> 4.9 km · ~7 min</span>
+      </div>
+      <p class="addr">26th Floor, Robinsons Summit Center, Ayala Makati City</p>
+      <ul class="roles"><li>RF / radio planning &amp; site design intern</li><li>site engineering intern (structural loading, grounding, lightning protection)</li><li>power systems intern (rectifiers, gensets, solar-hybrid)</li><li>NOC / remote monitoring intern</li></ul>
+      <p class="what"><b>What they do</b>Tower &amp; ancillary infrastructure: ground-base towers, monopoles, rooftop, smart poles; site acquisition, build, maintenance, upgrades for mobile operators.</p>
+      <div class="reality none">
+          <div class="r-head"><span class="r-tag muted">intern reality</span><span class="r-src">no first-hand account found — treat duties as inferred</span></div>
+          <ul class="r-list"><li>Nothing on Indeed, JobStreet, Glassdoor or Reddit under this name — the PH entity is young and rarely reviews.</li><li>Expect site/field work: tower sites, power cabinets, grounding, drive testing. Treat the role list as inferred only.</li></ul>
+        </div>
+      <div class="links"><a href="https://edgepointinfra.com/" target="_blank" rel="noopener">website</a><a href="https://edgepointinfra.com/get-in-touch" target="_blank" rel="noopener">careers / contact</a></div>
+      <details class="more"><summary>contact &amp; MOA details</summary><div class="panel">
+      <dl class="kv"><dt>Address</dt><dd>26th Floor, Robinsons Summit Center, Ayala Makati City</dd></dl>
+      <dl class="kv"><dt>Contact</dt><dd>Agcelene Kate Sojor (Kate)<br><span style="color:var(--muted)">Executive, HR &amp; Admin</span></dd></dl>
+      <dl class="kv"><dt>Email</dt><dd><a href="mailto:kate.sojor@edgepointinfra.com">kate.sojor@edgepointinfra.com</a></dd></dl>
+      <dl class="kv"><dt>MOA</dt><dd>September 2025 - September 2027</dd></dl>
+      <dl class="kv"><dt>Slots</dt><dd>not stated</dd></dl>
+      <dl class="kv"><dt>Intake</dt><dd>not stated</dd></dl>
+      <dl class="kv"><dt>Basis</dt><dd>edgepointinfra.com/solutions-services/towers-ancillary-services; /careers 404s with &#x27;drop us your resume&#x27;</dd></dl>
+    </div></details>
+    </div>
+  </li>
+  <li class="row" data-km="5.1" data-fit="HIGH" data-posted="0" data-reviews="1" data-text="meinhardt philippines, inc. elv / electronics engineering design intern; ict &amp; structured-cabling design intern; fire detection &amp; alarm (fdas) design intern; bim/revit modelling intern; site supervision &amp; testing-commissioning intern multi-disciplinary consultancy: electronics engineering (elv), fire &amp; life safety, security/cctv, ict, mepf, rail &amp; transport, data centres. bim-driven design. 25f chatham house 116 rufino cor. valero sts. salcedo village, makati city meinhardt.ph/capabilities/electronics-engineering/ (own ece practice page) &quot;light working environment&quot;, friendly engineers, work-life balance good — the single review is positive but thin. consultancy cadence: drawings, bim coordination, site visits, submittals — not lab work.">
+    <div class="rank">04</div>
+    <div class="body">
+      <div class="head">
+        <h2>Meinhardt Philippines, Inc.</h2>
+        <span class="badge b-high">strong ECE fit</span>
+        
+        <span class="dist"><span class="bar" aria-hidden="true"><i class="" style="width:44%"></i></span> 5.1 km · ~6 min</span>
+      </div>
+      <p class="addr">25F Chatham House 116 Rufino cor. Valero Sts. Salcedo Village, Makati City</p>
+      <ul class="roles"><li>ELV / Electronics Engineering design intern</li><li>ICT &amp; structured-cabling design intern</li><li>Fire detection &amp; alarm (FDAS) design intern</li><li>BIM/Revit modelling intern</li><li>site supervision &amp; testing-commissioning intern</li></ul>
+      <p class="what"><b>What they do</b>Multi-disciplinary consultancy: Electronics Engineering (ELV), Fire &amp; Life Safety, Security/CCTV, ICT, MEPF, rail &amp; transport, data centres. BIM-driven design.</p>
+      <div class="reality">
+          <div class="r-head"><span class="r-tag">intern reality</span><span class="r-stars">4.0 / 5</span><span class="r-src">Indeed · 1 intern review</span><a href="https://ph.indeed.com/cmp/Meinhardt-Philippines-Inc./reviews?fjobtitle=Intern" target="_blank" rel="noopener">source</a></div>
+          <ul class="r-list"><li>&quot;Light working environment&quot;, friendly engineers, work-life balance good — the single review is positive but thin.</li><li>Consultancy cadence: drawings, BIM coordination, site visits, submittals — not lab work.</li></ul><blockquote>&quot;Fun work place and light working environment... it helps me to develop my skills.&quot;</blockquote>
+        </div>
+      <div class="links"><a href="https://meinhardt.ph/" target="_blank" rel="noopener">website</a><a href="https://www.linkedin.com/company/meinhardt-group" target="_blank" rel="noopener">LinkedIn</a><a href="https://meinhardt.ph/careers/" target="_blank" rel="noopener">careers / contact</a></div>
+      <details class="more"><summary>contact &amp; MOA details</summary><div class="panel">
+      <dl class="kv"><dt>Address</dt><dd>25F Chatham House 116 Rufino cor. Valero Sts. Salcedo Village, Makati City</dd></dl>
+      <dl class="kv"><dt>Contact</dt><dd>Glaiza Lacanlalay<br><span style="color:var(--muted)">HR Head</span></dd></dl>
+      <dl class="kv"><dt>Email</dt><dd><a href="mailto:glacanlalay@meinhardt.com.ph">glacanlalay@meinhardt.com.ph</a></dd></dl>
+      <dl class="kv"><dt>MOA</dt><dd>March 15, 2024 - March 15, 2027</dd></dl>
+      <dl class="kv"><dt>Slots</dt><dd>not stated</dd></dl>
+      <dl class="kv"><dt>Intake</dt><dd>not stated</dd></dl>
+      <dl class="kv"><dt>Basis</dt><dd>meinhardt.ph/capabilities/electronics-engineering/ (own ECE practice page)</dd></dl>
+    </div></details>
+    </div>
+  </li>
+  <li class="row" data-km="5.2" data-fit="HIGH" data-posted="0" data-reviews="1" data-text="usher technologies incorporated instrumentation &amp; calibration intern; iot/telemetry &amp; data-acquisition intern; embedded/hardware support intern; field deployment &amp; site survey intern structural health &amp; seismic monitoring: earthquake recording instruments (accelerographs), structural monitoring systems; 55+ client organizations. unit 6a, 6th floor salamin building 197 salcedo st. legaspi village, brgy. san lorenzo, makati city usher.ph — &#x27;trusted by 55 organizations&#x27;; eri/accelerograph + structural health monitoring the only review is a warning: no structured training, projects assigned then graded harshly, cramped office. read as sink-or-swim: you get real instrumentation work because nobody is hand-holding you.">
+    <div class="rank">05</div>
+    <div class="body">
+      <div class="head">
+        <h2>USHER Technologies Incorporated</h2>
+        <span class="badge b-high">strong ECE fit</span>
+        
+        <span class="dist"><span class="bar" aria-hidden="true"><i class="" style="width:45%"></i></span> 5.2 km · ~7 min</span>
+      </div>
+      <p class="addr">Unit 6A, 6th Floor Salamin Building 197 Salcedo st. Legaspi Village, Brgy. San Lorenzo, Makati City</p>
+      <ul class="roles"><li>Instrumentation &amp; calibration intern</li><li>IoT/telemetry &amp; data-acquisition intern</li><li>embedded/hardware support intern</li><li>field deployment &amp; site survey intern</li></ul>
+      <p class="what"><b>What they do</b>Structural health &amp; seismic monitoring: earthquake recording instruments (accelerographs), structural monitoring systems; 55+ client organizations.</p>
+      <div class="reality">
+          <div class="r-head"><span class="r-tag">intern reality</span><span class="r-stars">2.0 / 5</span><span class="r-src">Indeed · 1 intern review (2.0)</span><a href="https://ph.indeed.com/cmp/Usher-Technologies,-Inc./reviews?fjobtitle=Intern" target="_blank" rel="noopener">source</a></div>
+          <ul class="r-list"><li>The only review is a warning: no structured training, projects assigned then graded harshly, cramped office.</li><li>Read as sink-or-swim: you get real instrumentation work because nobody is hand-holding you.</li></ul><blockquote>&quot;There are no trainings given and they will give you projects but you will get a low grade from them.&quot;</blockquote>
+        </div>
+      <div class="links"><a href="https://usher.ph/" target="_blank" rel="noopener">website</a><a href="https://usher.ph/" target="_blank" rel="noopener">careers / contact</a></div>
+      <details class="more"><summary>contact &amp; MOA details</summary><div class="panel">
+      <dl class="kv"><dt>Address</dt><dd>Unit 6A, 6th Floor Salamin Building 197 Salcedo st. Legaspi Village, Brgy. San Lorenzo, Makati City</dd></dl>
+      <dl class="kv"><dt>Contact</dt><dd>Sammuel Jann Vasquez<br><span style="color:var(--muted)">Product Engineer</span></dd></dl>
+      <dl class="kv"><dt>Email</dt><dd><a href="mailto:sammueljann@gmail.com">sammueljann@gmail.com / sam.vasquez@usher.ph</a></dd></dl>
+      <dl class="kv"><dt>MOA</dt><dd>May 21, 2026 - May 21, 2029</dd></dl>
+      <dl class="kv"><dt>Slots</dt><dd>10 interns</dd></dl>
+      <dl class="kv"><dt>Intake</dt><dd>Year-round</dd></dl>
+      <dl class="kv"><dt>Basis</dt><dd>usher.ph — &#x27;Trusted by 55 organizations&#x27;; ERI/accelerograph + structural health monitoring</dd></dl>
+    </div></details>
+    </div>
+  </li>
+  <li class="row" data-km="5.4" data-fit="MEDIUM" data-posted="1" data-reviews="3" data-text="r.g. manabat &amp; co. technology consulting intern — vapt; cyber security / it risk intern; it audit intern; data-privacy assessment intern kpmg philippines: audit, tax, advisory; technology consulting runs cybersecurity &amp; data-privacy work. 6th floor, the kpmg center 6787 ayala avenue, makati city. linkedin jd read in full: &#x27;assist in vapt, security assessments, and data privacy engagements&#x27; (2027 internships) heavy, real engagement work — interns sit on live audits and are expected to keep up during busy season. frequent overtime is the standard complaint; work-life balance scores 2.3/5 across 38 reviews. counterweight: seniors and managers are hands-on, plus structured training and intern socials.">
+    <div class="rank">06</div>
+    <div class="body">
+      <div class="head">
+        <h2>R.G. Manabat &amp; Co.</h2>
+        <span class="badge b-mid">partial fit</span>
+        <span class="badge b-live">posting found</span>
+        <span class="dist"><span class="bar" aria-hidden="true"><i class="" style="width:46%"></i></span> 5.4 km · ~7 min</span>
+      </div>
+      <p class="addr">6TH FLOOR, The KPMG Center 6787 Ayala Avenue, Makati City.</p>
+      <ul class="roles"><li>Technology Consulting Intern — VAPT</li><li>Cyber Security / IT Risk intern</li><li>IT audit intern</li><li>data-privacy assessment intern</li></ul>
+      <p class="what"><b>What they do</b>KPMG Philippines: audit, tax, advisory; Technology Consulting runs cybersecurity &amp; data-privacy work.</p>
+      <div class="reality">
+          <div class="r-head"><span class="r-tag">intern reality</span><span class="r-stars">3.9 / 5</span><span class="r-src">Indeed · 3 intern reviews (WLB 2.3/5)</span><a href="https://ph.indeed.com/cmp/R.g.-Manabat-&amp;-Co.---Kpmg-in-the-Philippines/reviews?fjobtitle=Intern&amp;fcountry=PH" target="_blank" rel="noopener">source</a></div>
+          <ul class="r-list"><li>Heavy, real engagement work — interns sit on live audits and are expected to keep up during busy season.</li><li>Frequent overtime is the standard complaint; work-life balance scores 2.3/5 across 38 reviews.</li><li>Counterweight: seniors and managers are hands-on, plus structured training and intern socials.</li></ul><blockquote>&quot;Expect frequent overtime work. There was also a lot of socials/interactive activities for the interns.&quot;</blockquote>
+        </div>
+      <div class="links"><a href="https://kpmg.com/ph/en/home.html" target="_blank" rel="noopener">website</a><a href="https://www.linkedin.com/company/kpmg" target="_blank" rel="noopener">LinkedIn</a><a href="https://kpmg.com/ph/en/careers.html" target="_blank" rel="noopener">careers / contact</a><a class="post" href="https://www.linkedin.com/jobs/view/4467148817" target="_blank" rel="noopener">Technology Consulting Intern</a></div>
+      <details class="more"><summary>contact &amp; MOA details</summary><div class="panel">
+      <dl class="kv"><dt>Address</dt><dd>6TH FLOOR, The KPMG Center 6787 Ayala Avenue, Makati City.</dd></dl>
+      <dl class="kv"><dt>Contact</dt><dd>Sean Alastaire Y. Agulto | Arrianne Bautista<br><span style="color:var(--muted)">HR Department</span></dd></dl>
+      <dl class="kv"><dt>Email</dt><dd><a href="mailto:syagulto@Kpmg.Com">syagulto@Kpmg.Com | aabautista1@kpmg.com</a></dd></dl>
+      <dl class="kv"><dt>MOA</dt><dd>July 2, 2025 - July 2, 2028</dd></dl>
+      <dl class="kv"><dt>Slots</dt><dd>not stated</dd></dl>
+      <dl class="kv"><dt>Intake</dt><dd>not stated</dd></dl>
+      <dl class="kv"><dt>Basis</dt><dd>LinkedIn JD read in full: &#x27;assist in VAPT, Security Assessments, and Data Privacy engagements&#x27; (2027 internships)</dd></dl>
+    </div></details>
+    </div>
+  </li>
+  <li class="row" data-km="8.2" data-fit="HIGH" data-posted="0" data-reviews="0" data-text="jason marine technology philippines, opc marine electronics service &amp; commissioning intern; bench repair / pcb-level troubleshooting intern; navigation &amp; comms install intern; technical sales-support intern marine communication, navigation and automation equipment: gmdss, ais, radar, gps, autopilot, pa/toa audio, fish finders. 1407 quezon avenue, quezon city philippines jasonelectronicsph.com — &#x27;marine communication, navigation, and automation... with our engineering team&#x27; no intern or employee reviews anywhere public — one of the quietest companies on the list. the work itself is concrete: bench repair, on-vessel commissioning, ais/gmdss installs. ask hr for a day-in-the-life before committing.">
+    <div class="rank">07</div>
+    <div class="body">
+      <div class="head">
+        <h2>Jason Marine Technology Philippines, OPC</h2>
+        <span class="badge b-high">strong ECE fit</span>
+        
+        <span class="dist"><span class="bar" aria-hidden="true"><i class="" style="width:56%"></i></span> 8.2 km · ~11 min</span>
+      </div>
+      <p class="addr">1407 Quezon Avenue, Quezon City Philippines</p>
+      <ul class="roles"><li>Marine electronics service &amp; commissioning intern</li><li>bench repair / PCB-level troubleshooting intern</li><li>navigation &amp; comms install intern</li><li>technical sales-support intern</li></ul>
+      <p class="what"><b>What they do</b>Marine communication, navigation and automation equipment: GMDSS, AIS, radar, GPS, autopilot, PA/TOA audio, fish finders.</p>
+      <div class="reality none">
+          <div class="r-head"><span class="r-tag muted">intern reality</span><span class="r-src">no first-hand account found — treat duties as inferred</span></div>
+          <ul class="r-list"><li>No intern or employee reviews anywhere public — one of the quietest companies on the list.</li><li>The work itself is concrete: bench repair, on-vessel commissioning, AIS/GMDSS installs. Ask HR for a day-in-the-life before committing.</li></ul>
+        </div>
+      <div class="links"><a href="https://jasonelectronicsph.com/" target="_blank" rel="noopener">website</a><a href="https://www.linkedin.com/company/jason-electronics-pte-ltd" target="_blank" rel="noopener">LinkedIn</a><a href="https://jasonelectronicsph.com/get-a-quote/" target="_blank" rel="noopener">careers / contact</a></div>
+      <details class="more"><summary>contact &amp; MOA details</summary><div class="panel">
+      <dl class="kv"><dt>Address</dt><dd>1407 Quezon Avenue, Quezon City Philippines</dd></dl>
+      <dl class="kv"><dt>Contact</dt><dd>May Jean D. Tado<br><span style="color:var(--muted)">HR and Admin Officer</span></dd></dl>
+      <dl class="kv"><dt>Email</dt><dd><a href="mailto:jasonelectronicsphil@gmail.com">jasonelectronicsphil@gmail.com</a></dd></dl>
+      <dl class="kv"><dt>MOA</dt><dd>April 13, 2026 - April 13, 2029</dd></dl>
+      <dl class="kv"><dt>Slots</dt><dd>3 to 4 Interns</dd></dl>
+      <dl class="kv"><dt>Intake</dt><dd>Year-round</dd></dl>
+      <dl class="kv"><dt>Basis</dt><dd>jasonelectronicsph.com — &#x27;marine communication, navigation, and automation... With our Engineering team&#x27;</dd></dl>
+    </div></details>
+    </div>
+  </li>
+  <li class="row" data-km="8.8" data-fit="MED-HIGH" data-posted="1" data-reviews="3" data-text="coca-cola europacific aboitiz philippines, inc. automation &amp; controls intern (plc/scada/hmi); instrumentation &amp; metering intern; packaging-line electrical maintenance intern; utilities engineering intern (chillers, compressors, power) beverage manufacturing plants (calamba, sta. rosa, canlubang and others): bottling lines, utilities, packaging. 28f net lima building, 5th avenue corner 26th street, bonifacio global city, taguig city linkedin job 4284100749 &#x27;internship — coca-cola europacific aboitiz philippines&#x27; every review is from a corporate-function intern (people systems, hr operations) in bgc — not a plant. described as light, friendly, with staff who genuinely teach. nobody reports line/automation work.">
+    <div class="rank">08</div>
+    <div class="body">
+      <div class="head">
+        <h2>Coca-Cola Europacific Aboitiz Philippines, Inc.</h2>
+        <span class="badge b-high">good ECE fit</span>
+        <span class="badge b-live">posting found</span>
+        <span class="dist"><span class="bar" aria-hidden="true"><i class="" style="width:58%"></i></span> 8.8 km · ~10 min</span>
+      </div>
+      <p class="addr">28F Net Lima Building, 5th Avenue corner 26th Street, Bonifacio Global City, Taguig City</p>
+      <ul class="roles"><li>Automation &amp; controls intern (PLC/SCADA/HMI)</li><li>instrumentation &amp; metering intern</li><li>packaging-line electrical maintenance intern</li><li>utilities engineering intern (chillers, compressors, power)</li></ul>
+      <p class="what"><b>What they do</b>Beverage manufacturing plants (Calamba, Sta. Rosa, Canlubang and others): bottling lines, utilities, packaging.</p>
+      <div class="reality">
+          <div class="r-head"><span class="r-tag">intern reality</span><span class="r-stars">5.0 / 5</span><span class="r-src">Indeed · 3 intern reviews</span><a href="https://ph.indeed.com/cmp/Coca--cola-Europacific-Aboitiz-Philippines-1/job-titles/Intern" target="_blank" rel="noopener">source</a></div>
+          <ul class="r-list"><li>Every review is from a corporate-function intern (People Systems, HR Operations) in BGC — not a plant.</li><li>Described as light, friendly, with staff who genuinely teach. Nobody reports line/automation work.</li></ul><blockquote>&quot;Interned for the People Systems department (HR Operations), very light and friendly vibes.&quot;</blockquote>
+        </div>
+      <div class="links"><a href="https://www.ccep.com.ph/" target="_blank" rel="noopener">website</a><a href="https://www.linkedin.com/company/coca-cola-europacific-partners" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.ccep.com.ph/careers" target="_blank" rel="noopener">careers / contact</a><a class="post" href="https://www.linkedin.com/jobs/view/4284100749" target="_blank" rel="noopener">Internship</a></div>
+      <details class="more"><summary>contact &amp; MOA details</summary><div class="panel">
+      <dl class="kv"><dt>Address</dt><dd>28F Net Lima Building, 5th Avenue corner 26th Street, Bonifacio Global City, Taguig City</dd></dl>
+      <dl class="kv"><dt>Contact</dt><dd>Manelyn Ravilles<br><span style="color:var(--muted)">People Operation</span></dd></dl>
+      <dl class="kv"><dt>Email</dt><dd><a href="mailto:manelyn.ravilles@coca-cola.com.ph">manelyn.ravilles@coca-cola.com.ph</a></dd></dl>
+      <dl class="kv"><dt>MOA</dt><dd>September 20, 2024 - September 20, 2027</dd></dl>
+      <dl class="kv"><dt>Slots</dt><dd>not stated</dd></dl>
+      <dl class="kv"><dt>Intake</dt><dd>not stated</dd></dl>
+      <dl class="kv"><dt>Basis</dt><dd>LinkedIn job 4284100749 &#x27;Internship — Coca-Cola Europacific Aboitiz Philippines&#x27;</dd></dl>
+    </div></details>
+    </div>
+  </li>
+  <li class="row" data-km="9.2" data-fit="MEDIUM" data-posted="1" data-reviews="0" data-text="secuna software technologies inc. penetration-testing (offensive security) intern; security assessment &amp; reporting intern; network/iot device security testing intern offensive security: penetration testing, vulnerability disclosure and bug bounty platform. unit 10-1 one global place, 5th avenue &amp; 25th street bonifacio global city, taguig city secuna.io — &#x27;penetration testing, vulnerability disclosure programs, and bug bounty&#x27;; posting verified no intern reviews public. their full-time offensive security role describes the actual work: scoping, testing, reporting. small team (~30 people) — expect to be thrown into live engagements rather than a syllabus.">
+    <div class="rank">09</div>
+    <div class="body">
+      <div class="head">
+        <h2>Secuna Software Technologies Inc.</h2>
+        <span class="badge b-mid">partial fit</span>
+        <span class="badge b-live">posting found</span>
+        <span class="dist"><span class="bar" aria-hidden="true"><i class="" style="width:59%"></i></span> 9.2 km · ~11 min</span>
+      </div>
+      <p class="addr">Unit 10-1 One Global Place, 5th Avenue &amp; 25th Street Bonifacio Global City, Taguig City</p>
+      <ul class="roles"><li>Penetration-testing (offensive security) intern</li><li>security assessment &amp; reporting intern</li><li>network/IoT device security testing intern</li></ul>
+      <p class="what"><b>What they do</b>Offensive security: penetration testing, vulnerability disclosure and bug bounty platform.</p>
+      <div class="reality none">
+          <div class="r-head"><span class="r-tag muted">intern reality</span><span class="r-src">no first-hand account found — treat duties as inferred</span></div>
+          <ul class="r-list"><li>No intern reviews public. Their full-time Offensive Security role describes the actual work: scoping, testing, reporting.</li><li>Small team (~30 people) — expect to be thrown into live engagements rather than a syllabus.</li></ul>
+        </div>
+      <div class="links"><a href="https://www.secuna.io/" target="_blank" rel="noopener">website</a><a href="https://www.linkedin.com/company/secuna" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.secuna.io/contact" target="_blank" rel="noopener">careers / contact</a><a class="post" href="https://www.linkedin.com/jobs/view/3937572857" target="_blank" rel="noopener">Offensive Security Engineer</a></div>
+      <details class="more"><summary>contact &amp; MOA details</summary><div class="panel">
+      <dl class="kv"><dt>Address</dt><dd>Unit 10-1 One Global Place, 5th Avenue &amp; 25th Street Bonifacio Global City, Taguig City</dd></dl>
+      <dl class="kv"><dt>Contact</dt><dd>Ciprian Billones Jr.<br><span style="color:var(--muted)">Chief Operating Officer</span></dd></dl>
+      <dl class="kv"><dt>Email</dt><dd><a href="mailto:cjay@secuna.io">cjay@secuna.io</a></dd></dl>
+      <dl class="kv"><dt>MOA</dt><dd>February 16, 2026 - February 16, 2029</dd></dl>
+      <dl class="kv"><dt>Slots</dt><dd>not stated</dd></dl>
+      <dl class="kv"><dt>Intake</dt><dd>not stated</dd></dl>
+      <dl class="kv"><dt>Basis</dt><dd>secuna.io — &#x27;penetration testing, vulnerability disclosure programs, and bug bounty&#x27;; posting verified</dd></dl>
+    </div></details>
+    </div>
+  </li>
+  <li class="row" data-km="13.8" data-fit="MED-HIGH" data-posted="0" data-reviews="0" data-text="meralco power academy powercamp intern — rotation through meralco / miescor (substations, lines, protection); energy-lab &amp; training-support intern; smart-grid / metering exposure meralco&#x27;s training arm; powercamp is their flagship engineering internship across the one meralco ecosystem. lopez building, ortigas avenue, barangay ugong, pasig city meralcopoweracademy.org/powercamp — &#x27;premier internship program... immerses students across the one meralco ecosystem&#x27; powercamp is 280 hours, june–july, and mapúa is an explicit partner university — the most selective option here. interns rotate through one meralco companies, visit the power lab (appliance testing/efficiency), do business casing and a live case presentation. it&#x27;s a recruitment pipeline: alumni convert to cadet engineer roles (e.g. mgen renewables).">
+    <div class="rank">10</div>
+    <div class="body">
+      <div class="head">
+        <h2>Meralco Power Academy</h2>
+        <span class="badge b-high">good ECE fit</span>
+        
+        <span class="dist"><span class="bar" aria-hidden="true"><i class="" style="width:73%"></i></span> 13.8 km · ~18 min</span>
+      </div>
+      <p class="addr">Lopez Building, Ortigas Avenue, Barangay Ugong, Pasig City</p>
+      <ul class="roles"><li>PowerCamp intern — rotation through Meralco / MIESCOR (substations, lines, protection)</li><li>energy-lab &amp; training-support intern</li><li>smart-grid / metering exposure</li></ul>
+      <p class="what"><b>What they do</b>Meralco&#x27;s training arm; PowerCamp is their flagship engineering internship across the One Meralco ecosystem.</p>
+      <div class="reality none">
+          <div class="r-head"><span class="r-tag muted">intern reality</span><span class="r-src">no first-hand account found — treat duties as inferred</span></div>
+          <ul class="r-list"><li>PowerCamp is 280 hours, June–July, and Mapúa is an explicit partner university — the most selective option here.</li><li>Interns rotate through One Meralco companies, visit the Power Lab (appliance testing/efficiency), do business casing and a live case presentation.</li><li>It&#x27;s a recruitment pipeline: alumni convert to Cadet Engineer roles (e.g. MGEN Renewables).</li></ul>
+        </div>
+      <div class="links"><a href="https://www.meralcopoweracademy.org/" target="_blank" rel="noopener">website</a><a href="https://www.linkedin.com/company/meralcopoweracademy" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.meralcopoweracademy.org/powercamp/" target="_blank" rel="noopener">careers / contact</a></div>
+      <details class="more"><summary>contact &amp; MOA details</summary><div class="panel">
+      <dl class="kv"><dt>Address</dt><dd>Lopez Building, Ortigas Avenue, Barangay Ugong, Pasig City</dd></dl>
+      <dl class="kv"><dt>Contact</dt><dd>Kathleen Kristy Dorico<br><span style="color:var(--muted)">Director for Advocacy and Communication</span></dd></dl>
+      <dl class="kv"><dt>Email</dt><dd><a href="mailto:kkddorico@meralcopoweracademy.org">kkddorico@meralcopoweracademy.org/ apestrella@meralcopoweracademy.org</a></dd></dl>
+      <dl class="kv"><dt>MOA</dt><dd>March 25, 2025 until March 24, 2028</dd></dl>
+      <dl class="kv"><dt>Slots</dt><dd>not stated</dd></dl>
+      <dl class="kv"><dt>Intake</dt><dd>not stated</dd></dl>
+      <dl class="kv"><dt>Basis</dt><dd>meralcopoweracademy.org/powercamp — &#x27;premier internship program... immerses students across the One Meralco ecosystem&#x27;</dd></dl>
+    </div></details>
+    </div>
+  </li>
+  <li class="row" data-km="15.0" data-fit="MEDIUM" data-posted="0" data-reviews="1" data-text="sd solutions i.t. outsourcing, inc. it infrastructure / network support intern; information security intern; service-desk / noc intern it outsourcing and managed services. 3f unit 307 jg bldg. c. raymundo ave. rosario, pasig city sdsolutions.com.ph/career — live openings incl. jr. information security officer single review, entirely positive: healthy environment, approachable staff, willing to help. outsourcing shop — expect tickets, deployments and support rotations rather than project ownership.">
+    <div class="rank">11</div>
+    <div class="body">
+      <div class="head">
+        <h2>SD Solutions I.T. Outsourcing, Inc.</h2>
+        <span class="badge b-mid">partial fit</span>
+        
+        <span class="dist"><span class="bar" aria-hidden="true"><i class="" style="width:76%"></i></span> 15 km · ~18 min</span>
+      </div>
+      <p class="addr">3F Unit 307 JG Bldg. C. Raymundo Ave. Rosario, Pasig City</p>
+      <ul class="roles"><li>IT infrastructure / network support intern</li><li>information security intern</li><li>service-desk / NOC intern</li></ul>
+      <p class="what"><b>What they do</b>IT outsourcing and managed services.</p>
+      <div class="reality">
+          <div class="r-head"><span class="r-tag">intern reality</span><span class="r-stars">5.0 / 5</span><span class="r-src">Indeed · 1 intern review</span><a href="https://ph.indeed.com/cmp/Sd-Solutions-IT-Outsourcing-Inc/reviews?fjobtitle=Intern" target="_blank" rel="noopener">source</a></div>
+          <ul class="r-list"><li>Single review, entirely positive: healthy environment, approachable staff, willing to help.</li><li>Outsourcing shop — expect tickets, deployments and support rotations rather than project ownership.</li></ul><blockquote>&quot;Healthy work environment and employees are friendly, approachable, and always willing to help.&quot;</blockquote>
+        </div>
+      <div class="links"><a href="https://www.sdsolutions.com.ph/" target="_blank" rel="noopener">website</a><a href="https://www.linkedin.com/company/sdsolutionsit" target="_blank" rel="noopener">LinkedIn</a><a href="https://sdsolutions.com.ph/career" target="_blank" rel="noopener">careers / contact</a></div>
+      <details class="more"><summary>contact &amp; MOA details</summary><div class="panel">
+      <dl class="kv"><dt>Address</dt><dd>3F Unit 307 JG Bldg. C. Raymundo Ave. Rosario, Pasig City</dd></dl>
+      <dl class="kv"><dt>Contact</dt><dd>Jennina Jane Ibarra<br><span style="color:var(--muted)">HRAD Executive</span></dd></dl>
+      <dl class="kv"><dt>Email</dt><dd><a href="mailto:hr@sdsolutions.com.ph">hr@sdsolutions.com.ph</a></dd></dl>
+      <dl class="kv"><dt>MOA</dt><dd>November 22, 2023 - November 23, 2026</dd></dl>
+      <dl class="kv"><dt>Slots</dt><dd>not stated</dd></dl>
+      <dl class="kv"><dt>Intake</dt><dd>not stated</dd></dl>
+      <dl class="kv"><dt>Basis</dt><dd>sdsolutions.com.ph/career — live openings incl. Jr. Information Security Officer</dd></dl>
+    </div></details>
+    </div>
+  </li>
+  <li class="row" data-km="16.2" data-fit="HIGH" data-posted="0" data-reviews="0" data-text="90 degrees north inc. broadcast rf / transmission engineer intern (rf planning, spectrum); systems integration &amp; commissioning intern; antenna/tower site works intern; bench test &amp; technical support intern broadcast baseband &amp; rf equipment distribution; rf system design, transmitters/antennas, tower fabrication, studio/playout integration, ntc licensing. 509 emerald court bldg. 54 road 8, project 6 quezon city 90northmedia.com/services — &#x27;broadcast transmission: transmitters, antennas, rf distribution&#x27;; &#x27;rf planning, and spectrum management&#x27; no intern reviews. it&#x27;s a small project 6 integrator — 3 office addresses, engineer-led. realistic guess: you assist on rack builds, transmitter installs, site surveys and documentation. verify by phone.">
+    <div class="rank">12</div>
+    <div class="body">
+      <div class="head">
+        <h2>90 DEGREES North Inc.</h2>
+        <span class="badge b-high">strong ECE fit</span>
+        
+        <span class="dist"><span class="bar" aria-hidden="true"><i class="" style="width:79%"></i></span> 16.2 km · ~20 min</span>
+      </div>
+      <p class="addr">509 Emerald Court Bldg. 54 Road 8, Project 6 Quezon City</p>
+      <ul class="roles"><li>Broadcast RF / transmission engineer intern (RF planning, spectrum)</li><li>systems integration &amp; commissioning intern</li><li>antenna/tower site works intern</li><li>bench test &amp; technical support intern</li></ul>
+      <p class="what"><b>What they do</b>Broadcast baseband &amp; RF equipment distribution; RF system design, transmitters/antennas, tower fabrication, studio/playout integration, NTC licensing.</p>
+      <div class="reality none">
+          <div class="r-head"><span class="r-tag muted">intern reality</span><span class="r-src">no first-hand account found — treat duties as inferred</span></div>
+          <ul class="r-list"><li>No intern reviews. It&#x27;s a small Project 6 integrator — 3 office addresses, engineer-led.</li><li>Realistic guess: you assist on rack builds, transmitter installs, site surveys and documentation. Verify by phone.</li></ul>
+        </div>
+      <div class="links"><a href="https://90northmedia.com/" target="_blank" rel="noopener">website</a><a href="https://www.linkedin.com/company/90degreesnorth" target="_blank" rel="noopener">LinkedIn</a><a href="https://90northmedia.com/contact-us/" target="_blank" rel="noopener">careers / contact</a></div>
+      <details class="more"><summary>contact &amp; MOA details</summary><div class="panel">
+      <dl class="kv"><dt>Address</dt><dd>509 Emerald Court Bldg. 54 Road 8, Project 6 Quezon City</dd></dl>
+      <dl class="kv"><dt>Contact</dt><dd>Annadel Chan<br><span style="color:var(--muted)">HR/ Admin Assistant</span></dd></dl>
+      <dl class="kv"><dt>Email</dt><dd><a href="mailto:hradmin@90northmedia.com">hradmin@90northmedia.com</a></dd></dl>
+      <dl class="kv"><dt>MOA</dt><dd>March 2025 - March 2028</dd></dl>
+      <dl class="kv"><dt>Slots</dt><dd>not stated</dd></dl>
+      <dl class="kv"><dt>Intake</dt><dd>not stated</dd></dl>
+      <dl class="kv"><dt>Basis</dt><dd>90northmedia.com/services — &#x27;Broadcast Transmission: transmitters, antennas, RF distribution&#x27;; &#x27;RF planning, and spectrum management&#x27;</dd></dl>
+    </div></details>
+    </div>
+  </li>
+  <li class="row" data-km="19.7" data-fit="HIGH" data-posted="1" data-reviews="1" data-text="lattice semiconductor philippines design verification intern (uvm/systemverilog); fpga applications engineering intern; test/product engineering intern; board bring-up &amp; lab validation intern low-power fpga design, software &amp; ip; alabang/northgate site does design and applications engineering. 11f aeon center, zapote road, n bridgeway, alabang, muntinlupa linkedin posting verified: &#x27;design verification intern, lattice semiconductor, muntinlupa city&#x27; intern review: good environment, competitive compensation, &quot;you&#x27;ll definitely learn a lot&quot;, easy-going people. jobstreet employees add the caveat: weak onboarding — &quot;no transparent training, you have to learn it yourself&quot;. career development scores lowest of their sub-ratings (3.9/5) while work-life balance is highest (4.6/5).">
+    <div class="rank">13</div>
+    <div class="body">
+      <div class="head">
+        <h2>Lattice Semiconductor Philippines</h2>
+        <span class="badge b-high">strong ECE fit</span>
+        <span class="badge b-live">posting found</span>
+        <span class="dist"><span class="bar" aria-hidden="true"><i class="" style="width:87%"></i></span> 19.7 km · ~22 min</span>
+      </div>
+      <p class="addr">11F Aeon Center, Zapote Road, N Bridgeway, Alabang, Muntinlupa</p>
+      <ul class="roles"><li>Design Verification Intern (UVM/SystemVerilog)</li><li>FPGA Applications Engineering intern</li><li>Test/Product Engineering intern</li><li>board bring-up &amp; lab validation intern</li></ul>
+      <p class="what"><b>What they do</b>Low-power FPGA design, software &amp; IP; Alabang/Northgate site does design and applications engineering.</p>
+      <div class="reality">
+          <div class="r-head"><span class="r-tag">intern reality</span><span class="r-stars">5.0 / 5</span><span class="r-src">Indeed · 1 intern review + JobStreet 4.7/5 (14)</span><a href="https://ph.jobstreet.com/companies/lattice-semiconductor-168556645019714/reviews" target="_blank" rel="noopener">source</a></div>
+          <ul class="r-list"><li>Intern review: good environment, competitive compensation, &quot;you&#x27;ll definitely learn a lot&quot;, easy-going people.</li><li>JobStreet employees add the caveat: weak onboarding — &quot;no transparent training, you have to learn it yourself&quot;.</li><li>Career development scores lowest of their sub-ratings (3.9/5) while work-life balance is highest (4.6/5).</li></ul><blockquote>&quot;Good environment, good compensation benefits and incentives. You&#x27;ll definitely learn a lot.&quot;</blockquote>
+        </div>
+      <div class="links"><a href="https://www.latticesemi.com/" target="_blank" rel="noopener">website</a><a href="https://www.linkedin.com/company/latticesemi" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.latticesemi.com/careers" target="_blank" rel="noopener">careers / contact</a><a class="post" href="https://www.linkedin.com/jobs/view/4221237793" target="_blank" rel="noopener">Design Verification Intern</a></div>
+      <details class="more"><summary>contact &amp; MOA details</summary><div class="panel">
+      <dl class="kv"><dt>Address</dt><dd>11F Aeon Center, Zapote Road, N Bridgeway, Alabang, Muntinlupa</dd></dl>
+      <dl class="kv"><dt>Contact</dt><dd>Jay Espiritu<br><span style="color:var(--muted)">Talent Acquisition Partner</span></dd></dl>
+      <dl class="kv"><dt>Email</dt><dd><a href="mailto:jay.espiritu@latticesemi.com">jay.espiritu@latticesemi.com</a></dd></dl>
+      <dl class="kv"><dt>MOA</dt><dd>May 18, 2026 - May 17, 2029</dd></dl>
+      <dl class="kv"><dt>Slots</dt><dd>not stated</dd></dl>
+      <dl class="kv"><dt>Intake</dt><dd>not stated</dd></dl>
+      <dl class="kv"><dt>Basis</dt><dd>LinkedIn posting verified: &#x27;Design Verification Intern, Lattice Semiconductor, Muntinlupa City&#x27;</dd></dl>
+    </div></details>
+    </div>
+  </li>
+  <li class="row" data-km="21.5" data-fit="LOW-MED" data-posted="0" data-reviews="0" data-text="philippine bible society, inc production equipment maintenance intern (press/bindery electrical &amp; electronics); prepress/digital workflow support intern; facilities &amp; utilities intern bible publishing and printing plant (lawang bato, valenzuela): presses and bindery equipment. km 25, no. 11 lawang bato industrial compound, east canumay valenzuela city masterlist contacts are &#x27;production facility officer&#x27; and &#x27;printing supervisor&#x27; zero intern reviews on indeed and jobstreet — nobody documents this placement. it is a working printing plant: presses, bindery, prepress. maintenance shadowing, not design work.">
+    <div class="rank">14</div>
+    <div class="body">
+      <div class="head">
+        <h2>Philippine Bible Society, Inc</h2>
+        <span class="badge b-low">thin fit</span>
+        
+        <span class="dist"><span class="bar" aria-hidden="true"><i class="far" style="width:91%"></i></span> 21.5 km · ~26 min</span>
+      </div>
+      <p class="addr">Km 25, No. 11 Lawang Bato Industrial Compound, East Canumay Valenzuela City</p>
+      <ul class="roles"><li>Production equipment maintenance intern (press/bindery electrical &amp; electronics)</li><li>prepress/digital workflow support intern</li><li>facilities &amp; utilities intern</li></ul>
+      <p class="what"><b>What they do</b>Bible publishing and printing plant (Lawang Bato, Valenzuela): presses and bindery equipment.</p>
+      <div class="reality none">
+          <div class="r-head"><span class="r-tag muted">intern reality</span><span class="r-src">no first-hand account found — treat duties as inferred</span></div>
+          <ul class="r-list"><li>Zero intern reviews on Indeed and JobStreet — nobody documents this placement.</li><li>It is a working printing plant: presses, bindery, prepress. Maintenance shadowing, not design work.</li></ul>
+        </div>
+      <div class="links"><a href="https://bible.org.ph/" target="_blank" rel="noopener">website</a><a href="https://www.linkedin.com/company/philippine-bible-society" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.kalibrr.ph/c/philippine-bible-society-1/jobs" target="_blank" rel="noopener">Kalibrr listings</a></div>
+      <details class="more"><summary>contact &amp; MOA details</summary><div class="panel">
+      <dl class="kv"><dt>Address</dt><dd>Km 25, No. 11 Lawang Bato Industrial Compound, East Canumay Valenzuela City</dd></dl>
+      <dl class="kv"><dt>Contact</dt><dd>Mr. Emmanuel H. Cabrillos | Rhea Lyn M. Gaca<br><span style="color:var(--muted)">Production Facility Officer | Printing Supervisor</span></dd></dl>
+      <dl class="kv"><dt>Email</dt><dd><a href="mailto:ehcabrillos@bible.org.ph">ehcabrillos@bible.org.ph | rmgacal@bible.org.ph</a></dd></dl>
+      <dl class="kv"><dt>MOA</dt><dd>May 20, 2024 - May 20, 2027</dd></dl>
+      <dl class="kv"><dt>Slots</dt><dd>not stated</dd></dl>
+      <dl class="kv"><dt>Intake</dt><dd>not stated</dd></dl>
+      <dl class="kv"><dt>Basis</dt><dd>Masterlist contacts are &#x27;Production Facility Officer&#x27; and &#x27;Printing Supervisor&#x27;</dd></dl>
+    </div></details>
+    </div>
+  </li>
+  <li class="row" data-km="22.6" data-fit="HIGH" data-posted="0" data-reviews="0" data-text="powerhaus industrial sales and services, inc. (pisas inc.) field service &amp; commissioning intern; instrumentation &amp; calibration intern; technical proposals / application engineering intern; spare-parts &amp; failure-analysis intern authorized/exclusive distributor of power-plant maintenance parts &amp; equipment; maintenance services for power, energy and heavy industry. 64 aguirre ave. pilar village zone 11 phase v las pinas city pisas-inc.com/about-us — &#x27;parts, equipment sales, maintenance services... power plant maintenance&#x27; no public reviews. small family-run distributor (md, vp finance, operations manager are the whole leadership page). expect to shadow field service and proposals — genuinely technical, but unverified by anyone who&#x27;s done it.">
+    <div class="rank">15</div>
+    <div class="body">
+      <div class="head">
+        <h2>Powerhaus Industrial Sales and Services, Inc. (PISAS Inc.)</h2>
+        <span class="badge b-high">strong ECE fit</span>
+        
+        <span class="dist"><span class="bar" aria-hidden="true"><i class="far" style="width:93%"></i></span> 22.6 km · ~24 min</span>
+      </div>
+      <p class="addr">64 Aguirre Ave. Pilar Village Zone 11 Phase V Las Pinas City</p>
+      <ul class="roles"><li>Field service &amp; commissioning intern</li><li>instrumentation &amp; calibration intern</li><li>technical proposals / application engineering intern</li><li>spare-parts &amp; failure-analysis intern</li></ul>
+      <p class="what"><b>What they do</b>Authorized/exclusive distributor of power-plant maintenance parts &amp; equipment; maintenance services for power, energy and heavy industry.</p>
+      <div class="reality none">
+          <div class="r-head"><span class="r-tag muted">intern reality</span><span class="r-src">no first-hand account found — treat duties as inferred</span></div>
+          <ul class="r-list"><li>No public reviews. Small family-run distributor (MD, VP Finance, Operations Manager are the whole leadership page).</li><li>Expect to shadow field service and proposals — genuinely technical, but unverified by anyone who&#x27;s done it.</li></ul>
+        </div>
+      <div class="links"><a href="https://pisas-inc.com/" target="_blank" rel="noopener">website</a><a href="https://www.linkedin.com/company/pisas" target="_blank" rel="noopener">LinkedIn</a><a href="https://pisas-inc.com/about-us/" target="_blank" rel="noopener">careers / contact</a></div>
+      <details class="more"><summary>contact &amp; MOA details</summary><div class="panel">
+      <dl class="kv"><dt>Address</dt><dd>64 Aguirre Ave. Pilar Village Zone 11 Phase V Las Pinas City</dd></dl>
+      <dl class="kv"><dt>Contact</dt><dd>Engr. J Christopher Perez<br><span style="color:var(--muted)">Operations Manager</span></dd></dl>
+      <dl class="kv"><dt>Email</dt><dd><a href="mailto:ct.perez@pisas.herkings.com hr@herkings.com">ct.perez@pisas.herkings.com hr@herkings.com</a></dd></dl>
+      <dl class="kv"><dt>MOA</dt><dd>April 29, 2025 - April 28, 2028</dd></dl>
+      <dl class="kv"><dt>Slots</dt><dd>not stated</dd></dl>
+      <dl class="kv"><dt>Intake</dt><dd>not stated</dd></dl>
+      <dl class="kv"><dt>Basis</dt><dd>pisas-inc.com/about-us — &#x27;parts, equipment sales, maintenance services... power plant maintenance&#x27;</dd></dl>
+    </div></details>
+    </div>
+  </li>
+  <li class="row" data-km="24.4" data-fit="LOW" data-posted="0" data-reviews="0" data-text="allhome corp. store facilities &amp; maintenance engineering intern; electrical systems / generator &amp; ups intern; cctv &amp; security systems intern; it support intern home-improvement retail chain; head office at allvalue / vista mall somo. allvalue head office, 2f allhome vista mall somo, molino paliparan rd., bacoor, cavite masterlist contact is hr business partner at allvalue head office; careers page currently 525-erroring indeed lists 42 allhome jobs but no intern reviews; the careers site is currently down (cloudflare 525). retail facilities work: store electrical, gensets, cctv. low electronics content.">
+    <div class="rank">16</div>
+    <div class="body">
+      <div class="head">
+        <h2>Allhome Corp.</h2>
+        <span class="badge b-low">weak fit</span>
+        
+        <span class="dist"><span class="bar" aria-hidden="true"><i class="far" style="width:97%"></i></span> 24.4 km · ~26 min</span>
+      </div>
+      <p class="addr">AllValue Head Office, 2F AllHome Vista Mall SoMo, Molino Paliparan Rd., Bacoor, Cavite</p>
+      <ul class="roles"><li>Store facilities &amp; maintenance engineering intern</li><li>electrical systems / generator &amp; UPS intern</li><li>CCTV &amp; security systems intern</li><li>IT support intern</li></ul>
+      <p class="what"><b>What they do</b>Home-improvement retail chain; head office at AllValue / Vista Mall SoMo.</p>
+      <div class="reality none">
+          <div class="r-head"><span class="r-tag muted">intern reality</span><span class="r-src">no first-hand account found — treat duties as inferred</span></div>
+          <ul class="r-list"><li>Indeed lists 42 AllHome jobs but no intern reviews; the careers site is currently down (Cloudflare 525).</li><li>Retail facilities work: store electrical, gensets, CCTV. Low electronics content.</li></ul>
+        </div>
+      <div class="links"><a href="https://www.linkedin.com/company/allhomecorppage" target="_blank" rel="noopener">website</a><a href="https://www.linkedin.com/company/allhomecorppage" target="_blank" rel="noopener">LinkedIn</a><a href="https://corporate.allhome.com.ph/careers/" target="_blank" rel="noopener">careers / contact</a></div>
+      <details class="more"><summary>contact &amp; MOA details</summary><div class="panel">
+      <dl class="kv"><dt>Address</dt><dd>AllValue Head Office, 2F AllHome Vista Mall SoMo, Molino Paliparan Rd., Bacoor, Cavite</dd></dl>
+      <dl class="kv"><dt>Contact</dt><dd>Kathrene Mae V. Legones<br><span style="color:var(--muted)">HR Business Partner</span></dd></dl>
+      <dl class="kv"><dt>Email</dt><dd><a href="mailto:kat.legones@allhome.ph">kat.legones@allhome.ph</a></dd></dl>
+      <dl class="kv"><dt>MOA</dt><dd>May 11, 2026 - May 11, 2029</dd></dl>
+      <dl class="kv"><dt>Slots</dt><dd>⚠ data error: contains an Alstom careers URL</dd></dl>
+      <dl class="kv"><dt>Intake</dt><dd>Did not give any numbers student can apply through link</dd></dl>
+      <dl class="kv"><dt>Basis</dt><dd>Masterlist contact is HR Business Partner at AllValue head office; careers page currently 525-erroring</dd></dl>
+    </div></details>
+    </div>
+  </li>
+  <li class="row" data-km="265.2" data-fit="HIGH" data-posted="1" data-reviews="5" data-text="texas instruments (ti) philippines inc. test engineering intern (ate, test-program debug, yield); process/equipment engineering intern; product engineering intern; quality &amp; reliability intern; it intern (clark) analog &amp; embedded ics; baguio = assembly/test operations, clark = it/business services. philippine economic zone, loakan road baguio city careers.ti.com ph list read live 2026-11-07; &#x27;engineering internship&#x27; baguio posting verified consistent theme: meaningful, real projects with 1-on-1 mentoring, plus an internship allowance. recurring complaint: direct supervisors are busy and can leave you unsupervised on your project. hiring is slow — multiple reviewers flag a long process. baguio reviews are more positive than pampanga.">
+    <div class="rank">17</div>
+    <div class="body">
+      <div class="head">
+        <h2>Texas Instruments (TI) Philippines Inc.</h2>
+        <span class="badge b-high">strong ECE fit</span>
+        <span class="badge b-live">posting found</span>
+        <span class="dist"><span class="bar" aria-hidden="true"><i class="far" style="width:100%"></i></span> 265.2 km · ~247 min</span>
+      </div>
+      <p class="addr">Philippine Economic Zone, Loakan Road Baguio City</p>
+      <ul class="roles"><li>Test Engineering intern (ATE, test-program debug, yield)</li><li>Process/Equipment Engineering intern</li><li>Product Engineering intern</li><li>Quality &amp; Reliability intern</li><li>IT intern (Clark)</li></ul>
+      <p class="what"><b>What they do</b>Analog &amp; embedded ICs; Baguio = assembly/test operations, Clark = IT/business services.</p>
+      <div class="reality">
+          <div class="r-head"><span class="r-tag">intern reality</span><span class="r-stars">4.3 / 5</span><span class="r-src">Indeed · 5+ intern reviews</span><a href="https://ph.indeed.com/cmp/Texas-Instruments/job-titles/Intern" target="_blank" rel="noopener">source</a></div>
+          <ul class="r-list"><li>Consistent theme: meaningful, real projects with 1-on-1 mentoring, plus an internship allowance.</li><li>Recurring complaint: direct supervisors are busy and can leave you unsupervised on your project.</li><li>Hiring is slow — multiple reviewers flag a long process. Baguio reviews are more positive than Pampanga.</li></ul><blockquote>&quot;One-on-one mentoring, handle real-life projects, internship allowance... members of the team are willing to help.&quot;</blockquote>
+        </div>
+      <div class="links"><a href="https://www.ti.com/" target="_blank" rel="noopener">website</a><a href="https://www.linkedin.com/company/texas-instruments" target="_blank" rel="noopener">LinkedIn</a><a href="https://careers.ti.com/en/sites/CX/jobs?location=Philippines" target="_blank" rel="noopener">careers / contact</a><a class="post" href="https://www.linkedin.com/jobs/view/4136087941" target="_blank" rel="noopener">2025 Engineering Internship</a><a class="post" href="https://careers.ti.com/en/sites/CX/jobs?location=Philippines" target="_blank" rel="noopener">TI PH job list</a></div>
+      <details class="more"><summary>contact &amp; MOA details</summary><div class="panel">
+      <dl class="kv"><dt>Address</dt><dd>Philippine Economic Zone, Loakan Road Baguio City</dd></dl>
+      <dl class="kv"><dt>Contact</dt><dd>Jane Leigh D. Garcia<br><span style="color:var(--muted)">Talent Acquisition Manager</span></dd></dl>
+      <dl class="kv"><dt>Email</dt><dd><a href="mailto:janeleigh@ti.com">janeleigh@ti.com</a></dd></dl>
+      <dl class="kv"><dt>MOA</dt><dd>January 2023 - January 2028</dd></dl>
+      <dl class="kv"><dt>Slots</dt><dd>not stated</dd></dl>
+      <dl class="kv"><dt>Intake</dt><dd>not stated</dd></dl>
+      <dl class="kv"><dt>Basis</dt><dd>careers.ti.com PH list read live 2026-11-07; &#x27;Engineering Internship&#x27; Baguio posting verified</dd></dl>
+    </div></details>
+    </div>
+  </li>
+  </ol>
+  <p class="empty" id="empty" hidden>Nothing matches that filter. Clear the search or pick “All 17”.</p>
+</main>
+<footer>
+  <div class="wrap cols">
+    <div>
+      <h3>How to read this</h3>
+      <ul>
+        <li><b>Distance</b> is road distance from DLSU–Taft (14.5649, 120.9931), generated by OSRM. Traffic-free: add 40–100% at rush hour.</li>
+        <li><b>Roles</b> are inferred from each company’s published services — not from a vacancy. Only a green ✓ posting is a requisition I actually opened.</li>
+        <li><b>Intern reality</b> is quoted from Indeed and JobStreet intern reviews and press coverage. Where it says “no first-hand account”, nothing exists publicly — don’t read the role list as a promise.</li>
+        <li>Ranks 1–2 and 3–5 sit inside the same Makati CBD blocks; treat sub-kilometre gaps as ties.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Before you email anyone</h3>
+      <ul>
+        <li>SD Solutions’ MOA expires <b>23 Nov 2026</b>.</li>
+        <li>AllHome’s slots field contains an Alstom careers URL — a data-entry error.</li>
+        <li>APMC’s listed email domain is mistyped (ayalaprperty.com.ph); Security Bank’s email doesn’t match the named contact.</li>
+        <li>Texas Instruments lists <b>EECE</b>, not ECE — confirm the code maps to BS Electronics Engineering, and note the site is Baguio (265 km).</li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+  const rows=[...document.querySelectorAll('li.row')];
+  const chips=[...document.querySelectorAll('.chip[data-filter]')];
+  const q=document.getElementById('q');
+  const empty=document.getElementById('empty');
+  const live=document.getElementById('live');
+  let filter='all';
+  const band = km => km<=6?'near': km<=10?'mid': km<=20?'far':'beyond';
+
+  function apply(){
+    const term=q.value.trim().toLowerCase();
+    let shown=0;
+    rows.forEach(function(li){
+      const km=parseFloat(li.dataset.km);
+      const okFilter = filter==='all'
+        || (filter==='high' ? (li.dataset.fit==='HIGH'||li.dataset.fit==='MED-HIGH')
+        :  filter==='posted' ? li.dataset.posted==='1'
+        :  filter==='reviews' ? parseInt(li.dataset.reviews,10)>0
+        :  band(km)===filter);
+      const okTerm = !term || li.dataset.text.includes(term);
+      const show = okFilter && okTerm;
+      li.hidden=!show;
+      if(show) shown++;
+    });
+    empty.hidden = shown>0;
+    live.textContent = shown+' of '+rows.length+' companies shown';
+  }
+  chips.forEach(function(c){
+    c.addEventListener('click',function(){
+      chips.forEach(function(o){o.setAttribute('aria-pressed', String(o===c));});
+      filter=c.dataset.filter; apply();
+    });
+  });
+  q.addEventListener('input',apply);
+  document.getElementById('sort').addEventListener('click',function(){
+    const list=document.querySelector('ol.list');
+    const mode=this.dataset.mode==='distance'?'fit':'distance';
+    this.dataset.mode=mode;
+    this.textContent = mode==='distance' ? 'Sorted by distance' : 'Sorted by ECE fit';
+    const items=[...list.children];
+    const rank={HIGH:0,'MED-HIGH':1,MEDIUM:2,'LOW-MED':3,LOW:4};
+    items.sort(function(a,b){
+      if(mode==='distance') return (+a.dataset.km)-(+b.dataset.km);
+      return rank[a.dataset.fit]-rank[b.dataset.fit] || (+a.dataset.km)-(+b.dataset.km);
+    });
+    items.forEach(function(el){list.appendChild(el);});
+    items.forEach(function(el,i){ el.querySelector('.rank').textContent=String(i+1).padStart(2,'0'); });
+  });
+  apply();
+})();
+</script>
+</body>
+</html>
